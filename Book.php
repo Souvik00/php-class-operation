@@ -1,3 +1,4 @@
+<?php
 class Book {
     private $isbn;
     private $title;
@@ -51,3 +52,4 @@ class Book {
         }
     }
 }
+?>

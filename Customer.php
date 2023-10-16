@@ -1,3 +1,4 @@
+<?php
 class Customer {
     private $id;
     private $firstName;
@@ -43,3 +44,4 @@ class Customer {
         }
     }
 }
+?>
