@@ -51,5 +51,27 @@ class Book {
             $this->$property = $value;
         }
     }
+    public function __call($method, $args) {
+        if($method == 'getCopy') {
+            if($this->available < 1) {
+                return false;
+            } else {
+                $this->available--;
+                return true;
+            }
+        }
+        elseif($method == 'addCopy') {
+            $this->available = $this->available + $args[0];
+            return true;
+        }
+        elseif($method == 'isAvailable') {
+            if($this->available < 1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+       
+    }
 }
 ?>

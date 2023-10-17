@@ -1,99 +1,49 @@
 <?php
+
 require_once 'Book.php';
 require_once 'Customer.php';
 
-echo '<pre>';
+$book1 = new Book('187981954','Ghore Baire','Rabindranath Tagore',6);
 
-echo 'Code: new Book(123456789, "1984", "George Orwell", 12)' . "\n";
-$book = new Book(123456789, "1984", "George Orwell", 12);
-echo "\n\n";
+$book2 = new Book('978818','Joshna','Humayun Azad',12);
+$book3 = new Book('97881953','Pokkho',' Ahmed',0);
 
-echo 'Code: echo $book' . "\n";
-echo $book;
-echo "\n\n";
+$customer1 = new  Customer(1,'Sam','Ahmed','sa@gmail.com');
+$customer2 = new  Customer(2,'Souvik','Sanyal','souvikavro00.sa@gmail.com');
 
-echo 'Code: echo $book->getTitle()' . "\n";
-echo $book->getTitle();
-echo "\n\n";
+echo "<b>BOOK</b></br>";
+// isAvailable
+echo "Book-1 is available? " . $book1->__call("isAvailable","") . "</br>";
+// getPrintableTitle
+echo "Book-1 Detail: " . $book1. "</br>";
 
-echo 'Code: echo $book->setTitle("Something")' . "\n";
-echo $book->setTitle("Something");
-echo "\n\n";
+echo "</br>";
 
-echo 'Code: echo $book->getTitle()' . "\n";
-echo $book->getTitle();
-echo "\n\n";
+// addCopy
+echo "Book-1 Detail: " . $book1. "</br>";
+echo "Book-3 availableCopy: " . $book3->__get("availableCopy") . "</br>"; 
+$book3->__call("addCopy","2"); // add A copy of Book-3
+echo "Book-3 availableCopy after adding 2 copy: " . "Book-3 Detail: " . $book3. "</br>";
 
-echo 'Code: echo $book->getAuthor()' . "\n";
-echo $book->getAuthor();
-echo "\n\n";
+echo "</br>";
 
-echo 'Code: echo $book->setAuthor("Someone")' . "\n";
-echo $book->setAuthor("Someone");
-echo "\n\n";
+//getTitle
+echo "Book-1 Title: <b>" . $book1->__get("title") . "</b></br>";
+//getAuthor
+echo "Book-1 Author: <b>" . $book1->__get("author") . "</b></br>";
+//getIsbn
+echo "Book-1 Isbn: <b>" . $book1->__get("isbn") . "</b></br>";
 
-echo 'Code: echo $book->getAuthor()' . "\n";
-echo $book->getAuthor();
-echo "\n\n";
-
-echo 'Code: var_dump($book->getCopy())' . "\n";
-echo var_dump($book->getCopy());
-echo "\n\n";
-
-echo 'Code: echo $book->getAvailable()' . "\n";
-echo $book->getAvailable();
-echo "\n\n";
-
-echo 'Code: echo var_dump($book->addCopy(100))' . "\n";
-echo var_dump($book->addCopy(100));
-echo "\n\n";
-
-echo 'Code: echo $book->getAvailable()' . "\n";
-echo $book->getAvailable();
-echo "\n\n";
-
-echo 'Code: echo $book' . "\n";
-echo $book;
-echo "\n\n";
+//Customer INFO.
+echo "</br> <b>CUSTOMER</b> </br>";
+echo "Customer-1 Id: <b>" . $customer1->__get("id") . "</b></br>";
+echo "Customer-1 First Name: <b>" . $customer1->__get("firstName") . "</b></br>";
+echo "Customer-1 Last Name: <b>" . $customer1->__get("lastName") . "</b></br>";
+echo "Customer-1 Email: <b>" . $customer1->__get("email") . "</b></br>";
+$customer1->__set("email","adrit@gmail.com");
+echo "Customer-1 Email after update: <b>" . $customer1->__get("email") . "</b></br>";
+echo "Customer 1 Detail: " . $customer1. "</br>";
+echo "Customer 2 Detail: " . $customer2. "</br>";
 
 
-echo "\n\n\n";
-
-
-echo 'Code: new Customer(999, "John", "Doe", "john@test.test")' . "\n";
-$customer = new Customer(999, "John", "Doe", "john@test.test");
-echo "\n\n";
-
-echo 'Code: echo $customer' . "\n";
-echo $customer;
-echo "\n\n";
-
-echo 'Code: echo $customer->getFirstName()' . "\n";
-echo $customer->getFirstName();
-echo "\n\n";
-
-echo 'Code: echo $customer->setFirstName("first")' . "\n";
-echo $customer->setFirstName("first");
-echo "\n\n";
-
-echo 'Code: echo $customer->getFirstName()' . "\n";
-echo $customer->getFirstName();
-echo "\n\n";
-
-echo 'Code: echo $customer->getEmail()' . "\n";
-echo $customer->getEmail();
-echo "\n\n";
-
-echo 'Code: echo $customer->setEmail("test@one.two")' . "\n";
-echo $customer->setEmail("test@one.two");
-echo "\n\n";
-
-echo 'Code: echo $customer->getEmail()' . "\n";
-echo $customer->getEmail();
-echo "\n\n";
-
-echo 'Code: echo $customer' . "\n";
-echo $customer;
-echo "\n\n";
-
-echo '</pre>';
+?>
